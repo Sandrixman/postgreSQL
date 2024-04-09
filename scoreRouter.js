@@ -3,7 +3,7 @@ const scoreRouter = express.Router()
 const pool = require("./pool")
 
 scoreRouter.get("/score", (req, res) => {
-    pool.query("SELECT * FROM score_list")
+    pool.query("SELECT * FROM scorelist")
         .then((result) => {
             res.json(result.rows)
         })
@@ -17,7 +17,7 @@ scoreRouter.post("/score", (req, res) => {
     const { name, score } = req.body
 
     const insertQuery = {
-        text: "INSERT INTO score_list(name, score) VALUES($1, $2)",
+        text: "INSERT INTO scorelist(name, score) VALUES($1, $2)",
         values: [name, score],
     }
 

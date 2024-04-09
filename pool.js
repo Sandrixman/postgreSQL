@@ -10,15 +10,4 @@ const pool = new Pool({
     port: process.env.DB_PORT,
 })
 
-const createTableQuery = `
-  CREATE TABLE IF NOT EXISTS scorelist (
-    id SERIAL PRIMARY KEY,
-    name VARCHAR(100),
-    email VARCHAR(100) UNIQUE
-  )
-`
-pool.query(createTableQuery).then((result) => {
-    console.log("Таблицю scorelist створено успішно")
-})
-
 module.exports = pool
