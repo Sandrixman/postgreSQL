@@ -10,13 +10,6 @@ const pool = new Pool({
     port: process.env.DB_PORT,
 })
 
-const dropTableQuery = `
-  DROP TABLE IF EXISTS scorelist
-`
-pool.query(dropTableQuery).then((result) => {
-    console.log("Таблицю scorelist видалено")
-})
-
 const createTableQuery = `
   CREATE TABLE IF NOT EXISTS scorelist (
     id SERIAL PRIMARY KEY,
